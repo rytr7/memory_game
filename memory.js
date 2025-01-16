@@ -15,18 +15,28 @@ const random = (x) => {
     return Math.floor(Math.random() * x);
 }
 
-let model = [];
-for(let i=1; i<=cardsNum/3; i++){
-    for(let j=0; j<3; j++){
-        model.push(i);
-    }
-}
+let ok = false;
 
-let num = [];
-for(let i=0; i<cardsNum; i++){
-    let j = random(model.length);
-    num.push(model[j]);
-    model.splice(j,1);
+while(!ok){
+    let model = [];
+    for(let i=1; i<=cardsNum/3; i++){
+        for(let j=0; j<3; j++){
+            model.push(i);
+        }
+    }
+    
+    let num = [];
+    for(let i=0; i<cardsNum; i++){
+        let j = random(model.length);
+        num.push(model[j]);
+        model.splice(j,1);
+    }
+    
+    ok = true;
+    
+    for(let i=0; i<cardsNum-1; i++){
+        if(num[i] == num[i+1]) ok = false;
+    }
 }
 
 // init
