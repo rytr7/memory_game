@@ -35,7 +35,7 @@ while(!ok){
     ok = true;
     
     for(let i=0; i<cardsNum-1; i++){
-        if(num[i] == num[i+1]) ok = false;
+        if(num[i] === num[i+1]) ok = false;
     }
 }
 
